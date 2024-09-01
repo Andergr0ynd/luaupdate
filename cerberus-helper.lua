@@ -1,6 +1,6 @@
 script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
-script_version("01.09.2024")
+script_version("01.09.2024.21.40")
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
 local autoupdate_loaded = false
@@ -132,11 +132,21 @@ if imgui.BeginTabBar('Tabs') then
         if imgui.BeginTabItem('ahk') then
         if imgui.Button('Discord') then
         lua_thread.create(function()
-        sampSendChat(u8:decode'/fam В Discord семьи, проходит конкурс на 5 призовых мест!')
+        sampSendChat(u8:decode'/fam У нашей семьи есть Discord канал!')
         wait(400)
         sampSendChat(u8:decode'/fam Попасть в наш Discord можно через заявку в друзья -> andergr0ynd')
         wait(400)
         sampSendChat(u8:decode'/fam Так-же при вступлении в Discord, выдаём 2-ой ранг.')
+        wait(400)
+        sampSendChat(u8:decode'/fam <<< Реклама Бизнесов >>>')
+        wait(400)
+        sampSendChat(u8:decode'/fam Заправляйся в АЗС №60, скидки для семьи 70 процентов. /findibiz 60')
+        wait(400)
+        sampSendChat(u8:decode'/fam Найти замечательную АЗС -> /findibiz 60')
+        wait(400)                    
+        sampSendChat(u8:decode'/fam Не знаешь где купить чипсы? Бизнес 24/7 №71, скидка для семьи 90 процентов')
+        wait(400)
+        sampSendChat(u8:decode'/fam Найти замечательный 24/7 -> /findibiz 71')
         wait(400)
         end)
      end
