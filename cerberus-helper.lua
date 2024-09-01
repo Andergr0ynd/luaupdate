@@ -1,4 +1,4 @@
-script_name("cerberus helper")
+script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
 script_version("1")
 
