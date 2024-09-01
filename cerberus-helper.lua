@@ -1,6 +1,6 @@
 script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
-script_version("01.09.2024.21.43")
+script_version("01.09.2024.21.45")
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
 local autoupdate_loaded = false
@@ -140,13 +140,13 @@ if imgui.BeginTabBar('Tabs') then
         wait(400)
         sampSendChat(u8:decode'/fam <<< Реклама Бизнесов >>>')
         wait(400)
-        sampSendChat(u8:decode'/fam Заправляйся в АЗС №60, скидки для семьи 7O процентов.')
+        sampSendChat(u8:decode'/fam Заправляйся в АЗС №6O, скидки для семьи 7O процентов.')
         wait(400)
         sampSendChat(u8:decode'/fam Найти замечательную АЗС -> /findibiz 6O')
         wait(400)                    
-        sampSendChat(u8:decode'/fam Не знаешь где купить чипсы? Бизнес 24/7 №71, скидка для семьи 9O процентов')
+        sampSendChat(u8:decode'/fam Не знаешь где купить чипсы? Бизнес 2Ч/7 №7l, скидка для семьи 9O процентов')
         wait(400)
-        sampSendChat(u8:decode'/fam Найти замечательный 24/7 -> /findibiz 71')
+        sampSendChat(u8:decode'/fam Найти замечательный 2Ч/7 -> /findibiz 7l')
         wait(400)
         end)
      end
