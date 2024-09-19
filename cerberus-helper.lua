@@ -1,6 +1,6 @@
 script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
-script_version("01.09.2024.21.55")
+script_version("19.09.2024.16.52")
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
 local autoupdate_loaded = false
@@ -145,6 +145,12 @@ if imgui.BeginTabBar('Tabs') then
         sampSendChat(u8:decode'/fam Найти замечательный 2Ч на 7 /findibiz 7l')
         wait(600)
         end)
+
+                 if imgui.Button('Discord') then
+        lua_thread.create(function()
+        sampSendChat(u8:decode'/b Сдам однушку (HBC) | Sport+ + Эко | 20к час | От 5 часов 15к')
+        wait(600)
+        end)           
      end
 
 -- Покупка/Продажа
