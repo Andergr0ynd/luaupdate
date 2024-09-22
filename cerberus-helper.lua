@@ -41,8 +41,6 @@ local WinState = new.bool()
 local ComboTest_mute = new.int() -- создаём буфер для комбо
 local ComboTest_warn = new.int() -- создаём буфер для комбо
 local ComboTest_black = new.int() -- создаём буфер для комбо
-local ComboTest_money = new.int() -- создаём буфер для комбо
-local ComboTest_buysell = new.int() -- создаём буфер для комбо
 
 -- mute
 local item_list_mute = {'Флуд', 'Оскорбление', 'Неадекват', 'Провокация', 'Реклама'} -- создаём таблицу с содержимым списка
