@@ -1,6 +1,6 @@
 script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
-script_version("19.09.2024.17.20")
+script_version("22.09.2024.13.55")
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
 local autoupdate_loaded = false
@@ -60,14 +60,6 @@ local item_list_black = {'Оск.Главы', 'Оск.Зама', 'Полит.Р�
 local ImItems_black = imgui.new['const char*'][#item_list_black](item_list_black)
 local black_id = new.char[256]()
 local black_time = new.char[256]()
-
---Покупка/Продажа
-local item_list_money = {'Продам', 'Куплю'} -- создаём таблицу с содержимым списка
-local item_list_buysell = {'Цена', 'Бюджет'} -- создаём таблицу с содержимым списка
-local ImItems_money = imgui.new['const char*'][#item_list_money](item_list_money)
-local ImItems_buysell = imgui.new['const char*'][#item_list_buysell](item_list_buysell)
-local money = new.char[256]()
-local money_id = new.char[256]()
 
 imgui.OnFrame(function() return WinState[0] end, function(player)
     imgui.SetNextWindowPos(imgui.ImVec2(500,500), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
@@ -146,22 +138,6 @@ if imgui.BeginTabBar('Tabs') then
         wait(600)
         end)         
      end
-
--- Покупка/Продажа
-        if imgui.InputTextWithHint('Что покупаете', 'Предмет ', money_id, 256) then 
-            id = money_id
-        end
-        if imgui.InputTextWithHint('Сумма', 'Цена/Бюджет', money, 256) then
-            minute = money
-        end
-        imgui.Combo('Продажа или покупка', ComboTest_money, ImItems_money, #item_list_money)
-        imgui.Combo('Цена или Бюджет', ComboTest_buysell, ImItems_buysell, #item_list_buysell)
-        if imgui.Button('Реклама') then
-            local message = string.format("/fam %s %s %s %s", item_list_money[ComboTest_money[0]+1], str(money_id), item_list_buysell[ComboTest_buysell[0]+1], str(money))
-            lua_thread.create(function()
-                sampSendChat(u8:decode(message))
-            end)
-        end
 
         imgui.EndTabItem()
     end
