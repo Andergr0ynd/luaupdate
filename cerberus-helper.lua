@@ -1,6 +1,6 @@
 script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
-script_version("22.09.2024.14.29")
+script_version("10.10.2024.17.51")
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
 local autoupdate_loaded = false
@@ -115,7 +115,7 @@ if imgui.BeginTabBar('Tabs') then
     end
 
     if imgui.BeginTabItem('Снятие наказание') then
-        imgui.Text('456')
+        imgui.Text('Продолжение')
         imgui.EndTabItem()
     end
 
@@ -129,9 +129,7 @@ if imgui.BeginTabBar('Tabs') then
         sampSendChat(u8:decode'/fam Так-же при вступлении в Discord, выдаём 2-ой ранг.')
         wait(600)
         sampSendChat(u8:decode'/fam <<< Реклама Бизнесов >>>')
-        wait(600)
-        sampSendChat(u8:decode'/fam Найти замечательную АЗС /findibiz 6O')
-        wait(600)                    
+        wait(600)               
         sampSendChat(u8:decode'/fam Найти замечательный 2Ч на 7 /findibiz 7l')
         wait(600)
         end)         
