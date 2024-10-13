@@ -1,6 +1,6 @@
 script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
-script_version("10.10.2024.17.51")
+script_version("13.10.2024.10.12")
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
 local autoupdate_loaded = false
@@ -122,11 +122,21 @@ if imgui.BeginTabBar('Tabs') then
         if imgui.BeginTabItem('ahk') then
         if imgui.Button('Discord') then
         lua_thread.create(function()
-        sampSendChat(u8:decode'/fam У нашей семьи есть Discord канал!')
+        sampSendChat(u8:decode'/fam В всязи с блокировкой Discord, Мы решили перейти REVOLT')
         wait(600)
-        sampSendChat(u8:decode'/fam Попасть в наш Discord можно через заявку в друзья -> andergr0ynd')
+        sampSendChat(u8:decode'/fam REVOLT, Это практически идентичная версия Discord!')
         wait(600)
-        sampSendChat(u8:decode'/fam Так-же при вступлении в Discord, выдаём 2-ой ранг.')
+        sampSendChat(u8:decode'/fam Как-же вступить на сервер в REVOLT?')
+        wait(600)
+        sampSendChat(u8:decode'/fam Всё так-же как и Discord, через заявку в друзья')
+        wait(600)
+        sampSendChat(u8:decode'/fam Мой Юзернейм в REVOLT -> andergr0ynd#3423')
+        wait(600)
+        sampSendChat(u8:decode'/fam Ждём всех!. При вступлении так-же выдаем 2-ой ранг!')
+        wait(600)
+        sampSendChat(u8:decode'/fam Так-же если у Вас работает Discord, можете присылать заявку в друзья')
+        wait(600)
+        sampSendChat(u8:decode'/fam Мой Юзернейм в Discord -> andergr0ynd')
         wait(600)
         sampSendChat(u8:decode'/fam <<< Реклама Бизнесов >>>')
         wait(600)               
