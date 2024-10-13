@@ -1,6 +1,6 @@
 script_name("cerberus-helper")
 script_url("https://github.com/Andergr0ynd/luaupdate/")
-script_version("13.10.2024.10.12")
+script_version("13.10.2024.18.46")
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
 local autoupdate_loaded = false
@@ -59,6 +59,25 @@ local ImItems_black = imgui.new['const char*'][#item_list_black](item_list_black
 local black_id = new.char[256]()
 local black_time = new.char[256]()
 
+-- Для снятия наказания
+local ComboTest_unmute = new.int() -- создаём буфер для комбо
+local ComboTest_unwarn = new.int() -- создаём буфер для комбо
+local ComboTest_unblack = new.int() -- создаём буфер для комбо
+
+-- unmute
+local unmute_id = new.char[256]()
+
+-- unwarn
+local item_list_unwarn = {'Прощён', 'Ошибка', 'Исправился'} -- создаём таблицу с содержимым списка
+local ImItems_unwarn = imgui.new['const char*'][#item_list_unwarn](item_list_unwarn)
+local unwarn_id = new.char[256]()
+
+-- unblacklist
+local item_list_unblack = {'Прощён', 'Ошибка', 'Исправился'} -- создаём таблицу с содержимым списка
+local ImItems_unblack = imgui.new['const char*'][#item_list_unblack](item_list_unblack)
+local unblack_id = new.char[256]()
+
+
 imgui.OnFrame(function() return WinState[0] end, function(player)
     imgui.SetNextWindowPos(imgui.ImVec2(500,500), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
     imgui.SetNextWindowSize(imgui.ImVec2(350, 500), imgui.Cond.Always)
@@ -114,8 +133,45 @@ if imgui.BeginTabBar('Tabs') then
         imgui.EndTabItem()
     end
 
+
+
+
+
     if imgui.BeginTabItem('Снятие наказание') then
-        imgui.Text('Продолжение')
+-- unmute 
+        if imgui.InputTextWithHint('ID', 'Введите ID ', unmute_id, 256) then 
+            id = unmute_id
+        end
+        if imgui.Button('Снять мут') then
+            local message = string.format("/famunmute %s",str(unmute_id))
+            lua_thread.create(function()
+                sampSendChat(u8:decode(message))
+            end)
+        end
+
+-- unwarn
+        if imgui.InputTextWithHint('ID ', 'Введите ID ', unwarn_id, 256) then 
+            id = unwarn_id
+        end
+        imgui.Combo('Список_unwarn', ComboTest_unwarn, ImItems_unwarn, #item_list_unwarn)
+        if imgui.Button('Сняит варн') then
+            local message = string.format("/unfamwarn %s %s",str(unwarn_id), item_list_unwarn[ComboTest_unwarn[0]+1])
+            lua_thread.create(function()
+                sampSendChat(u8:decode(message))
+            end)
+        end
+
+-- blacklist
+        if imgui.InputTextWithHint('ID  ', 'Введите ID ', unblack_id, 256) then 
+            id = unblack_id
+        end
+        imgui.Combo('Список_unblack', ComboTest_unblack, ImItems_unblack, #item_list_unblack)
+        if imgui.Button('Снять ЧС') then
+            local message = string.format("/famunblacklist %s %s",str(unblack_id), item_list_unblack[ComboTest_unblack[0]+1])
+            lua_thread.create(function()
+                sampSendChat(u8:decode(message))
+            end)
+        end
         imgui.EndTabItem()
     end
 
